@@ -4,7 +4,7 @@ function renderLicenseBadge(license) {
   const licenseBadges = {
     'MIT': '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
   };
-  return licenceBadges[license] || '';
+  return licenseBadges[license] || '';
 }
 
 // TODO: Create a function that returns the license link
@@ -29,7 +29,28 @@ function renderLicenseSection(license) {
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
+  const licenseSection = renderLicenseSection(data.license);
+  const licenseBadge = renderLicenseBadge(data.license);
   return `# ${data.title}
+  ${licenseBadge}
+
+  ## Description
+  ${data.description}
+  
+  ## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contribution](#contribution)
+  ${licenseSection}
+  
+  ## Installation
+  ${data.installation}
+  
+  ## Usage
+  ${data.usage}
+  
+  ## Contribution
+  ${data.contribution}
 
 `;
 }
